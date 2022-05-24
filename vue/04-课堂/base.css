@@ -1,0 +1,80 @@
+/* 基础公共样式 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    1. 系统字体
+    2. 字体默认颜色（根据设计稿测量）
+    3. body 的默认背景色（根据设计稿测量）
+   */
+body {
+    font: 14px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, sans-serif;
+    color: #050505;
+    background-color: #f3f5f7;
+}
+
+/*
+    取消链接下划线，设置链接默认颜色（根据设计稿测量）
+   */
+a {
+    text-decoration: none;
+    color: #050505;
+}
+
+/*
+    链接 hover 颜色（根据设计稿测量）
+   */
+a:hover {
+    color: #00a4ff;
+}
+
+/*
+    取消默认列表样式
+   */
+li {
+    list-style: none;
+}
+
+/*
+    倾斜字体不倾斜
+   */
+em,
+i {
+    font-style: normal;
+}
+
+/*
+    1. 根据盒子调整图片大小
+    2. 设置 vertical-align 避免底部间隙问题
+   */
+img {
+    vertical-align: middle;
+}
+
+/*
+    输入控件
+   */
+input {
+    border: none;
+    outline: none;
+}
+
+button {
+    /* 鼠标放上去变小手 */
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/*
+    清除浮动
+   */
+.clearfix::after {
+    content: " ";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}

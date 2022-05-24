@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .innner{
+            height:150px;
+            background-color: aqua;
+        }
+        .outer{
+            height:40px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="outer" @click="div2Handler">
+    <div class="inner" @click.self="divHandler">
+        <input type="button" value="戳他" @click="btnHandler"> 
+        <a href="https://www.baidu.com/" @click.prevent.once="linkClick">有问题，先去百度</a>
+    </div>
+</div>
+</div>
+    <script src="../04-课堂/vue.min.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+
+
+            },
+            methods:{
+                divHandler(){
+                    console.log('这是触发inner div的点击事件');
+
+                },
+                btnHandler(){
+                    console.log('这是触发btn按钮的点击事件');
+                },
+                linkClick(){
+                    console.log('触发了连接的点击事件');
+                },
+                div2Handler(){
+                    console.log('这是触发了inner div的点击事件');
+                }
+
+
+            }
+
+        })
+        
+    </script>
+</body>
+</html>

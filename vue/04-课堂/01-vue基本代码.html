@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+        
+        
+
+        
+    </style>
+   
+</head>
+<body>
+    <div id="app">
+        <p v-cloak>======{{ msg }}=======</p>
+        <h4 v-text="msg">==========</h4>
+        <h1 v-html="msg2">4512</h1>
+        <input type="button" value="按钮" :title="mytitle+'123'">
+        <button v-on:click="show">按钮</button>
+        <!-- v-bind 绑定事件 可以省写：    -->
+        <!-- text 会覆盖文本内容  而cloak不会会显示内容 -->
+        <!-- v-cloak 有闪烁问题   -->
+        <!-- v-html 会把h1 当成html格式运行 -->
+    </div>
+    <script src="../vue基础/vue.min.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:"欢迎学习vue",
+                msg2:"<h1>哈哈,我是一个大大的,lllll</h1>",
+                mytitle:'这是自己定义的title'
+            },
+            methods:{
+                show:function(){
+                    alert('Hello')
+                }
+
+            }
+           
+        })
+    </script>
+</body>
+</html>

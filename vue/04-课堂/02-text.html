@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="app">
+        <p>姓名：{{name}}</p>
+        <p>年龄：{{age}}</p>
+        <p>性别：{{sex}}</p>
+        <p>是否成年：{{isAudlt}}</p>
+        <p>是否成年：{{isAudltMethod()}}</p>
+        <p>说话：{{sayName()}}</p>
+        <p>打招呼：{{sayHello()}}</p>
+        <!-- <p>反转字符串：{reserveStr('你好，世界')}</p> -->
+        <p>乘2{{cheng2}}</p>
+        <p>可不可以：{{canSee}}</p>
+        <button v-on:click="increaseAge">年龄加1</button>
+        <button v-on:click="increaseNum">基数加1</button>
+    </main>
+    
+</body>
+<script src="../vue.min.js"></script>
+<script>
+    let num=1;
+    new Vue({
+        el:'#app',
+        data(){
+            return {
+                name:"HYNCNX",
+                age:35,
+                sex:'男'
+            }
+        },
+        methods:{
+            sayName(){
+                return 'My name is HJHJ';
+            },
+            sayHello(){
+                return '$(this.name)说："你好！”'
+            },
+            // reserveSTr(str){
+            //     let arr=[...str];
+            //     arr=arr.reverse();
+            //     return arr.join('');
+            // },
+            increaseAge(){
+                this.age++;
+
+            },
+            isAudltMethod(){
+                console.log('调用方法');
+                return this.age>=18?"是":"否"
+            },
+            increaseNum(){
+                num++;
+            }
+
+        },
+        computed:{
+            isAudlt(){
+                console.log('调用计算属性');
+                return this.age>=18?"是":"否"
+            },
+            cheng2(){
+                return num*2;
+            },
+            canSee(){
+                return this.isAudltMethod>='是'?"可以":"不要"
+            },
+        }
+
+    })
+    // console.log(vue.$data==data);
+    // console.log(vue.$el==document.querySelector("#app"));
+</script>
+</html>

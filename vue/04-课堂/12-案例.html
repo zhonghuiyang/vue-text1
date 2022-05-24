@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+
+
+                <table class="table table-bordered  table-hover table-atriped">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Name</td>
+                            <td>ctime</td>
+                            <td>operation</td>
+
+                        </tr>
+                    </thead>
+                    <tr v-for="item in list" :key="item.id">
+                        <td>{{item.id}}</td>
+                        <td v-text='item.name'></td>
+                        <td>{{item.ctime}}</td>
+                        <td>
+                            <a href="./01-vue基本代码.html" @click.prevent="del(item.id)">删除</a>
+                        </td>
+                    </tr>
+                </table>
+                <label>
+                    Id:
+                    <input type="text" class="form-control" v-model="id" @click="add()">
+                </label>
+                <label>
+                    Name:
+                    <input type="text" class="form-control" v-model="name" @key.enter="add()">
+                </label>
+
+                <label>
+                    Ctime:
+                    <input type="text" class="form-control" v-model="ctime" @click="add()">
+                </label>
+                <label>
+
+                    <input type="button" value="添加" class="btn btn-primary" @click="add()">
+
+                </label>
+            </div>
+        </div>
+    </div>
+    <script src="../vue基础/vue.min.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+
+            data: {
+                id: '',
+                name: '',
+                ctime: '',
+                list: [
+                    { id: 1, name: '玛莎拉蒂', ctime: new Date() },
+                    { id: 2, name: '奔驰', ctime: new Date() }
+                ]
+
+            },
+            methods: {
+                add() {
+                    var car = { id: this.id, name: this.name, ctime: new Date() }
+                    this.list.push(car)
+
+                },
+                del(id) {
+                    this.list.some((item, i) => {
+                        if (item.id == id) {
+                            this.list.splice(id-1, 1)
+                            return true;
+                        }
+                        // var index=this.list.findIndex(item=>{
+                        //     if(item.id==id){
+                        //         return true;
+                        //     }
+                        // })
+                        // this.list.splice(index,1)
+
+
+                        //     })
+
+                    })
+                }
+            }
+
+            })
+
+    </script>
+
+</body>
+
+</html>

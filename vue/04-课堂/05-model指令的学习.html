@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue基础/vue.min.js"></script>
+
+</head>
+<body>
+    <div class="app">
+        <h4>{{msg}}</h4>
+        <input type="text" v-bind:value="msg" style="width:100%">
+        <!-- v-bind 只能实现单向绑定 -->
+        <input type="text" v-model="msg" style="width:100%">
+        <!-- 双向绑定 v-model -->
+
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                msg:'大家都是好学生，爱敲代码，爱学习，爱思考'
+            },
+            methods:{
+
+            }
+
+        })
+
+    </script>
+    
+</body>
+</html>
